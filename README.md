@@ -2,7 +2,7 @@
 
 This is my personal portfolio site, showcasing my projects, skills, and experiences.
 
-🔗 **Live Website:** [niranjanv.com](https://niranjanv.com)
+🔗 **Live at:** [niranjanv.com](https://niranjanv.com)
 ---
 ## 📬 Contact
 
