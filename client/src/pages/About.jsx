@@ -18,8 +18,8 @@ export default function About() {
         <Page
           scale={1.5}
           pageNumber={pageNumber}
-          renderTextLayer={false}
-          renderAnnotationLayer={false}
+          renderTextLayer={true}
+          renderAnnotationLayer={true}
         />
       </Document>
     </div>

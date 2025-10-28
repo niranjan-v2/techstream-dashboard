@@ -75,7 +75,7 @@ export default function RunmlPage() {
           {[
             "Validate syntax of the .ml file",
             "Transpile into C11 code",
-            "Compile with C compiler",
+            "Compile with GCC",
             "Execute with args",
           ].map((step, i) => (
             <div key={i} className="text-center">
@@ -154,7 +154,7 @@ export default function RunmlPage() {
       </section>
 
       <footer className="text-center text-gray-500 dark:text-gray-400 py-12 text-sm">
-        © 2025 runml — Crafted by Niranjan V
+        © 2025 runml
       </footer>
     </div>
   );

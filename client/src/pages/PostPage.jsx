@@ -63,6 +63,15 @@ export default function PostPage() {
 
   return (
     <main className="p-3 flex flex-col max-w-7xl mx-auto min-h-screen dark:bg-gray-900">
+      <style>{`
+        h1 {
+          font-size: 1.25rem; /* text-xl */
+        }
+
+        .phone {
+          font-size: 12px; /* text-sm */
+        }
+    `}</style>
       <h1 className="text-3xl mt-10 p-3 text-center font-serif max-w-4xl mx-auto lg:text-5xl dark:text-white">
         {post && post.title}
       </h1>
@@ -87,7 +96,7 @@ export default function PostPage() {
       </div>
       <div className="p-3 w-full max-w-4xl mx-auto prose prose-lg dark:prose-invert">
         <article 
-          className="p-5 bg-white dark:bg-gray-800 rounded-lg shadow-sm dark:shadow-none"
+          className="p-5 bg-white dark:bg-gray-800 rounded-lg shadow-sm dark:shadow-none phone"
           dangerouslySetInnerHTML={{ __html: post && mdParser.render(post.content) }}
         ></article>
       </div>
