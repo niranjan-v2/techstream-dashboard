@@ -51,8 +51,6 @@ export default function App() {
         <Route path="/search" element={<Search />} />
         <Route path="/runml" element={<RunmlPage />} />
         <Route path="/legal/privacy-policy" element={<PrivacyPolicy />} />
-
-        {/* Your embedded VTS app */}
         <Route path="/vts" element={<VtsApp />} />
       </Routes>
 
