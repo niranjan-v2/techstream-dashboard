@@ -1,5 +1,6 @@
+// src/App.jsx
 import React from "react";
-import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { Routes, Route, useLocation } from "react-router-dom";
 import Home from "./pages/Home";
 import Dashboard from "./pages/Dashboard";
 import About from "./pages/About";
@@ -20,19 +21,28 @@ import PrivacyPolicy from "./pages/PrivacyPolicy.jsx";
 import VtsApp from "./pages/VtsApp.jsx";
 
 export default function App() {
+  const location = useLocation();
+
+  // Hide header & footer only on /vts (and any future /vts/*)
+  const hideChrome = location.pathname.startsWith("/vts");
+
   return (
-    <BrowserRouter>
+    <>
       <ScrollToTop />
-      <Header />
+      {!hideChrome && <Header />}
+
       <Routes>
         <Route path="/" element={<Home />} />
+
         <Route element={<PrivateRoute />}>
           <Route path="/dashboard" element={<Dashboard />} />
         </Route>
+
         <Route element={<OnlyAdminPrivateRoute />}>
           <Route path="/create-post" element={<CreatePost />} />
           <Route path="/update-post/:postId" element={<UpdatePost />} />
         </Route>
+
         <Route path="/about" element={<About />} />
         <Route path="/projects" element={<Projects />} />
         <Route path="/signin" element={<Signin />} />
@@ -41,9 +51,12 @@ export default function App() {
         <Route path="/search" element={<Search />} />
         <Route path="/runml" element={<RunmlPage />} />
         <Route path="/legal/privacy-policy" element={<PrivacyPolicy />} />
+
+        {/* Your embedded VTS app */}
         <Route path="/vts" element={<VtsApp />} />
       </Routes>
-      <FooterCom />
-    </BrowserRouter>
+
+      {!hideChrome && <FooterCom />}
+    </>
   );
 }
