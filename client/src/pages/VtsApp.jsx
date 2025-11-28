@@ -1,9 +1,7 @@
-// client/src/pages/VtsApp.jsx
 import React, { useEffect } from 'react';
 
 export default function VtsApp() {
   useEffect(() => {
-    // Save previous styles so we can restore them on unmount
     const prevBodyOverflow = document.body.style.overflow;
     const prevHtmlOverflow = document.documentElement.style.overflow;
     const prevOverscroll = document.documentElement.style.overscrollBehavior;
@@ -24,10 +22,6 @@ export default function VtsApp() {
   return (
     // Full-screen container
     <div className="fixed inset-0 bg-slate-950 flex items-center justify-center">
-      {/* 
-        On mobile: full-screen app
-        On md+ screens: framed phone look
-      */}
       <div
         className="
           relative w-full h-full
@@ -38,9 +32,9 @@ export default function VtsApp() {
       >
         <iframe
           title="Valluvan Tamil School App"
-          src="https://vts--ljimep9oys.expo.app"
+          src="https://vts--ik9o0sdube.expo.app"
           className="w-full h-full border-0"
-          style={{ display: 'block' }}   // remove inline-iframe gap
+          style={{ display: 'block' }}
           loading="lazy"
         />
       </div>
