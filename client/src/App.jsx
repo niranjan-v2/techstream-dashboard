@@ -16,7 +16,8 @@ import PostPage from "./pages/PostPage.jsx";
 import ScrollToTop from "./components/ScrollToTop.jsx";
 import Search from "./pages/Search.jsx";
 import RunmlPage from "./pages/RunmlPage.jsx";
-import PrivacyPolicy from "./pages/PrivacyPolicy";
+import PrivacyPolicy from "./pages/PrivacyPolicy.jsx";
+import VtsApp from "./pages/VtsApp.jsx";
 
 export default function App() {
   return (
@@ -40,6 +41,7 @@ export default function App() {
         <Route path="/search" element={<Search />} />
         <Route path="/runml" element={<RunmlPage />} />
         <Route path="/legal/privacy-policy" element={<PrivacyPolicy />} />
+        <Route path="/vts" element={<VtsApp />} />
       </Routes>
       <FooterCom />
     </BrowserRouter>
