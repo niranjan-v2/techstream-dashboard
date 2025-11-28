@@ -1,17 +1,46 @@
 // client/src/pages/VtsApp.jsx
-import React from 'react';
+import React, { useEffect } from 'react';
 
 export default function VtsApp() {
+  useEffect(() => {
+    // Save previous styles so we can restore them on unmount
+    const prevBodyOverflow = document.body.style.overflow;
+    const prevHtmlOverflow = document.documentElement.style.overflow;
+    const prevOverscroll = document.documentElement.style.overscrollBehavior;
+
+    // Lock scrolling on the outer page
+    document.body.style.overflow = 'hidden';
+    document.documentElement.style.overflow = 'hidden';
+    document.documentElement.style.overscrollBehavior = 'none';
+
+    // Cleanup on unmount – restore original styles
+    return () => {
+      document.body.style.overflow = prevBodyOverflow;
+      document.documentElement.style.overflow = prevHtmlOverflow;
+      document.documentElement.style.overscrollBehavior = prevOverscroll;
+    };
+  }, []);
+
   return (
-    <div className="min-h-screen bg-slate-950 flex items-center justify-center px-4 py-8">
-      {/* Phone frame */}
-      <div className="relative w-full max-w-sm aspect-[9/19] rounded-[2.5rem] bg-black shadow-2xl border border-slate-700 overflow-hidden">
-        {/* Embedded Expo web app */}
+    // Full-screen container
+    <div className="fixed inset-0 bg-slate-950 flex items-center justify-center">
+      {/* 
+        On mobile: full-screen app
+        On md+ screens: framed phone look
+      */}
+      <div
+        className="
+          relative w-full h-full
+          md:h-[calc(100vh-4rem)] md:max-w-sm md:aspect-[9/19]
+          bg-black overflow-hidden
+          md:rounded-[2.5rem] md:shadow-2xl md:border md:border-slate-700
+        "
+      >
         <iframe
           title="Valluvan Tamil School App"
           src="https://vts--ljimep9oys.expo.app"
           className="w-full h-full border-0"
-          style={{ borderRadius: '2.5rem' }}
+          style={{ display: 'block' }}   // remove inline-iframe gap
           loading="lazy"
         />
       </div>
