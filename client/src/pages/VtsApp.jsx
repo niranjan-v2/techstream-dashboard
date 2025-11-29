@@ -32,7 +32,7 @@ export default function VtsApp() {
       >
         <iframe
           title="Valluvan Tamil School App"
-          src="https://vts--ik9o0sdube.expo.app"
+          src="https://vts--hp83n19ipi.expo.app"
           className="w-full h-full border-0"
           style={{ display: 'block' }}
           loading="lazy"
